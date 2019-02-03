@@ -4310,3 +4310,1015 @@ Processing by V1::PostsController#create as JSON
 Completed 422 Unprocessable Entity in 51ms (Views: 3.8ms | ActiveRecord: 5.6ms)
 
 
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 22:33:02 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (6.84ms)
+Completed 200 OK in 61ms (Views: 17.8ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 22:43:07 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ArgumentError (Before process_action callback :authenticate_request has not been defined):
+  
+app/controllers/authentication_controller.rb:2:in `<class:AuthenticationController>'
+app/controllers/authentication_controller.rb:1:in `<main>'
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 22:45:52 +0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 18ms (Views: 4.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 22:46:25 +0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"nick@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"nick@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nick@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 22:47:02 +0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"nick@mail.ru", "password"=>"[FILTERED]", "authentication"=>{"email"=>"nick@mail.ru", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nick@mail.ru"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nick@mail.ru"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 3.2ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/lib/json_web_token.rb:5:in `encode'
+app/commands/authenticate_user.rb:10:in `call'
+app/controllers/authentication_controller.rb:5:in `authenticate'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("nickname", "email", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nickname", "example"], ["email", "example@mail.com"], ["created_at", "2019-02-03 18:49:38.023562"], ["updated_at", "2019-02-03 18:49:38.023562"], ["password_digest", "$2a$10$aW7DXj7G6IYMrl3hPOyrs.CreHYSwCR4BQmBooiaHaF4dkmNwQ.7i"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 22:50:12 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 4.2ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/lib/json_web_token.rb:5:in `encode'
+app/commands/authenticate_user.rb:10:in `call'
+app/controllers/authentication_controller.rb:5:in `authenticate'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+Started POST "/authenticate" for 127.0.0.1 at 2019-02-03 23:01:50 +0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:18
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 3.0ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/lib/json_web_token.rb:5:in `encode'
+app/commands/authenticate_user.rb:10:in `call'
+app/controllers/authentication_controller.rb:5:in `authenticate'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:12:57 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/authentication_controller.rb:1:in `<main>'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:14:46 +0400
+  
+TypeError (wrong argument type Class (expected Module)):
+  
+app/controllers/application_controller.rb:2:in `include'
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/authentication_controller.rb:1:in `<main>'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:16:15 +0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::ExceptionHandler):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/authentication_controller.rb:1:in `<main>'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:22:33 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 4.5ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fbd8ace6388>):
+  
+app/controllers/authentication_controller.rb:11:in `login'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:23:25 +0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 83ms (Views: 9.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:23:37 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:23:38 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2" for 127.0.0.1 at 2019-02-03 23:24:48 +0400
+Processing by V1::PostsController#show as */*
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2" for 127.0.0.1 at 2019-02-03 23:25:08 +0400
+Processing by V1::PostsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `find_by_username' for #<Class:0x00007fbd8a35b818>
+Did you mean?  find_by_email):
+  
+app/controllers/v1/posts_controller.rb:40:in `find_user'
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:26:00 +0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 70ms (Views: 5.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:26:38 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<V1::PostsController:0x00007fbd8bc987e0>
+Did you mean?  respond_to?):
+  
+app/controllers/v1/posts_controller.rb:44:in `json_format'
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:27:16 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<V1::PostsController:0x00007fbd8bc5bac0>
+Did you mean?  respond_to?):
+  
+app/controllers/v1/posts_controller.rb:44:in `json_format'
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:27:37 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (8.44ms)
+Completed 200 OK in 57ms (Views: 22.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:27:43 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:33
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.66ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:28:42 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:33
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.5ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:29:03 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:40
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:33
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.42ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:32:38 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<V1::PostsController:0x00007fbd8ad2cfe0>
+Did you mean?  respond_to?):
+  
+app/controllers/v1/posts_controller.rb:44:in `json_format'
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:35:53 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.68ms)
+Completed 200 OK in 39ms (Views: 2.7ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:36:57 +0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (1.1ms)
+Completed 200 OK in 41ms (Views: 15.2ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2019-02-03 23:37:10 +0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 58ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:37:13 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.6ms)
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:37:40 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.57ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:38:53 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/v1/posts_controller.rb:19:in `create'
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:39:12 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/v1/posts_controller.rb:19:in `create'
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:40:21 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `nickname' for nil:NilClass):
+  
+app/controllers/v1/posts_controller.rb:19:in `create'
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:41:52 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/v1/posts_controller.rb:19:in `create'
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:42:59 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/v1/posts_controller.rb:24
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "author", "published_at", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "NewTitle"], ["body", "NewBody"], ["author", "example"], ["published_at", "2019-02-03 19:42:59.286154"], ["user_id", 3], ["created_at", "2019-02-03 19:42:59.305999"], ["updated_at", "2019-02-03 19:42:59.305999"]]
+  ↳ app/controllers/v1/posts_controller.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/v1/posts_controller.rb:24
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.46ms)
+Completed 201 Created in 37ms (Views: 2.2ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:43:14 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/v1/posts_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/v1/posts_controller.rb:24
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 11.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:43:27 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:43:49 +0400
+Processing by V1::PostsController#create as JSON
+  Parameters: {"title"=>"NewTitle", "body"=>"NewBody"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:44:03 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:44:32 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.7ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<V1::PostsController:0x00007fa552533758>
+Did you mean?  respond_to?):
+  
+app/controllers/v1/posts_controller.rb:43:in `json_format'
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:44:47 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `respond_to' for #<V1::PostsController:0x00007fa5527f1788>
+Did you mean?  respond_to?):
+  
+app/controllers/v1/posts_controller.rb:43:in `json_format'
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:47:30 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2019-02-03 23:47:34 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:47:38 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:47:45 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:31
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.44ms)
+Completed 200 OK in 21ms (Views: 1.8ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/v1/posts/2.jso" for 127.0.0.1 at 2019-02-03 23:47:49 +0400
+Processing by V1::PostsController#show as 
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:31
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.55ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/posts/2.j" for 127.0.0.1 at 2019-02-03 23:47:53 +0400
+Processing by V1::PostsController#show as 
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:31
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.72ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:47:56 +0400
+Processing by V1::PostsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:31
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.47ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:48:21 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/posts/2.js"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:48:28 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:38
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:31
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.5ms)
+Completed 200 OK in 24ms (Views: 2.2ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:48:44 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:48:46 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:48:48 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/posts.js"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:48:54 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:50:11 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:50:13 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:50:16 +0400
+Processing by V1::PostsController#index as JS
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:50:17 +0400
+Processing by V1::PostsController#index as JS
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:50:20 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.45ms)
+Completed 200 OK in 22ms (Views: 1.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:50:22 +0400
+Processing by V1::PostsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Filter chain halted as :json_format rendered or redirected
+Completed 406 Not Acceptable in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:50:25 +0400
+Processing by V1::PostsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Filter chain halted as :json_format rendered or redirected
+Completed 406 Not Acceptable in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:51:04 +0400
+  
+SyntaxError (/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting end
+...   render plain: "Not found" => true, :status => 406 unless ...
+...                             ^~
+/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: Can't assign to true
+...nder plain: "Not found" => true, :status => 406 unless param...
+...                           ^~~~
+/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+..."Not found" => true, :status => 406 unless params[:format] =...
+...                             ^~):
+  
+app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting end
+app/controllers/v1/posts_controller.rb:43: Can't assign to true
+app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:51:07 +0400
+  
+SyntaxError (/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting end
+...   render plain: "Not found" => true, :status => 406 unless ...
+...                             ^~
+/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: Can't assign to true
+...nder plain: "Not found" => true, :status => 406 unless param...
+...                           ^~~~
+/Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+..."Not found" => true, :status => 406 unless params[:format] =...
+...                             ^~):
+  
+app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting end
+app/controllers/v1/posts_controller.rb:43: Can't assign to true
+app/controllers/v1/posts_controller.rb:43: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:51:18 +0400
+Processing by V1::PostsController#index as JS
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:51:20 +0400
+Processing by V1::PostsController#index as JS
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:51:23 +0400
+Processing by V1::PostsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Filter chain halted as :json_format rendered or redirected
+Completed 406 Not Acceptable in 11ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:51:28 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.5ms)
+Completed 200 OK in 15ms (Views: 2.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:51:49 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.6ms)
+Completed 200 OK in 28ms (Views: 2.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/v1/posts/2.js" for 127.0.0.1 at 2019-02-03 23:51:52 +0400
+Processing by V1::PostsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:52:13 +0400
+Processing by V1::PostsController#index as JS
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.js" for 127.0.0.1 at 2019-02-03 23:52:15 +0400
+Processing by V1::PostsController#index as JS
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:52:17 +0400
+Processing by V1::PostsController#index as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/posts/2.json" for 127.0.0.1 at 2019-02-03 23:53:27 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (0.49ms)
+Completed 200 OK in 20ms (Views: 2.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/v1/posts.json" for 127.0.0.1 at 2019-02-03 23:53:35 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (2.11ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:53:45 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.07ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:53:51 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.07ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:54:11 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.09ms)
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:54:18 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/posts.json?page=1" for 127.0.0.1 at 2019-02-03 23:54:55 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (2.58ms)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:54:59 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.07ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/posts.json?page=2" for 127.0.0.1 at 2019-02-03 23:55:20 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/posts.json?page=2&per_page=1" for 127.0.0.1 at 2019-02-03 23:55:37 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2", "per_page"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (1.05ms)
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/posts.json?page=2&per_page=2" for 127.0.0.1 at 2019-02-03 23:55:42 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"2", "per_page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 2]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.98ms)
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/posts.json?page=3&per_page=2" for 127.0.0.1 at 2019-02-03 23:55:47 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"3", "per_page"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 4]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.67ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/posts.json?page=3&per_page=1" for 127.0.0.1 at 2019-02-03 23:55:52 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"3", "per_page"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.55ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=22&per_page=1" for 127.0.0.1 at 2019-02-03 23:55:58 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"22", "per_page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 21]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=3&per_page=1" for 127.0.0.1 at 2019-02-03 23:56:05 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"3", "per_page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.91ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/posts.json?page=3&per_page=1" for 127.0.0.1 at 2019-02-03 23:56:14 +0400
+Processing by V1::PostsController#index as JSON
+  Parameters: {"page"=>"3", "per_page"=>"1"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+

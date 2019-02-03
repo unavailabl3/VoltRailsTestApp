@@ -1,6 +1,7 @@
 class V1::PostsController < ApplicationController
-  before_action :user_authenticate
   before_action :json_format
+  before_action :authorize_request
+  before_action :find_user
 
   def index
     posts = []
@@ -34,12 +35,12 @@ class V1::PostsController < ApplicationController
 
   private
 
-    def user_authenticate
-      @current_user = User.first
+    def find_user
+      @user = User.find_by_email(params[:email])
     end
 
     def json_format
-      respond_to :json
+      render plain: "Not found" unless params[:format] == 'json'
     end
 
 end
