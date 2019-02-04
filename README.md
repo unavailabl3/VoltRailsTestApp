@@ -24,3 +24,5 @@ Endpoints:
 * Json — ActiveModelSerializer
 
 * Json Web Token authentication
+
+Heroku: https://still-badlands-56815.herokuapp.com/
