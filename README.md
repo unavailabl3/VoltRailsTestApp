@@ -1,25 +1,25 @@
-# README
+REST API for blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Models:
+- Post ( title, body, author, published_at )
+- Comment ( body, author, published_at )
+- User ( nickname, email, password )
 
-Things you may want to cover:
+Endpoints:
+- Authentication: POST -> /auth/login
+- Create post: POST -> /api/v1/posts.json
+- Show post: GET -> /api/v1/posts/:post_id.json
+- Index posts by pages: GET -> /api/v1/posts.json
 
-* Ruby version
+* Ruby version - ruby 2.6.0p0 (2018-12-25 revision 66547)
 
-* System dependencies
+* Rails version - 5.2.2
 
-* Configuration
+* API versionist
 
-* Database creation
+* Database - PostgreSQL
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Testing - Rspec 3.6
 
 * Json — ActiveModelSerializer
 
