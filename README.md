@@ -1,4 +1,4 @@
-REST API for blog
+REST API for Blog
 
 Models:
 - Post ( title, body, author, published_at )
