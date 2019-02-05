@@ -14,6 +14,8 @@ gem 'bcrypt'
 
 gem 'factory_bot'
 
+gem 'faker'
+
 gem 'versionist'
 
 gem 'active_model_serializers', '~> 0.10.0'
