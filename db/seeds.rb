@@ -15,15 +15,12 @@ example_account = true
       password: "password"
     )
   end
-
-  user.save
   10.times do
     post = user.posts.create!(
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph,
       published_at: rand(1.year.ago..Time.now)
     )
-    post.save
     5.times do
       post.comments.create!(
         body: Faker::Lorem.question,
