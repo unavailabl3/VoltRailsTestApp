@@ -19,7 +19,8 @@ example_account = true
     post = user.posts.create!(
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph,
-      published_at: rand(1.year.ago..Time.now)
+      published_at: rand(1.year.ago..Time.now),
+      author: user.nickname
     )
     5.times do
       post.comments.create!(
