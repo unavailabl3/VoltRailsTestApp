@@ -12633,3 +12633,1265 @@ Processing by V1::UsersController#show as */*
 Completed 200 OK in 26ms (Views: 5.7ms | ActiveRecord: 4.2ms)
 
 
+Started POST "/auth/login" for ::1 at 2019-02-08 21:04:08 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 86ms (Views: 4.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-08 21:04:09 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (14.95ms)
+Completed 200 OK in 56ms (Views: 36.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-08 21:04:21 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-08 21:04:39 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/auth/login" for ::1 at 2019-02-08 21:06:40 +0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 59ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-08 21:06:40 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (10.41ms)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-08 21:06:44 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-02-08 21:09:50 +0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-02-08 21:13:36 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reports/by_example/" for ::1 at 2019-02-08 21:13:50 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_example"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by_example" for ::1 at 2019-02-08 21:13:52 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_example"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by_:nickname" for ::1 at 2019-02-08 21:13:59 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_:nickname"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by_example" for ::1 at 2019-02-08 21:14:04 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_example"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by_example.json" for ::1 at 2019-02-08 21:14:07 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_example.json"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by_example" for ::1 at 2019-02-08 21:14:14 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by_example"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by" for ::1 at 2019-02-08 21:14:27 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by" for ::1 at 2019-02-08 21:14:29 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by/1" for ::1 at 2019-02-08 21:14:32 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by/1"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/1/by" for ::1 at 2019-02-08 21:14:36 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/1/by"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/" for ::1 at 2019-02-08 21:14:38 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/by" for ::1 at 2019-02-08 21:14:49 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/reports/by"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by" for ::1 at 2019-02-08 21:15:03 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by.json" for ::1 at 2019-02-08 21:15:22 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by.json"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by" for ::1 at 2019-02-08 21:15:32 +0400
+  
+LoadError (Unable to autoload constant V1::ReportsController, expected /Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/reports_controller.rb to define it):
+  
+activesupport (5.2.2) lib/active_support/dependencies.rb:511:in `load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:57:in `load_missing_constant'
+activesupport (5.2.2) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.2) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.2) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+versionist (1.7.0) lib/versionist/middleware.rb:39:in `_call'
+versionist (1.7.0) lib/versionist/middleware.rb:17:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by/1" for ::1 at 2019-02-08 21:15:41 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by/1"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by?a=a" for ::1 at 2019-02-08 21:15:46 +0400
+  
+LoadError (Unable to autoload constant V1::ReportsController, expected /Users/admin/Documents/Projects/VoltRailsTestApp/app/controllers/v1/reports_controller.rb to define it):
+  
+activesupport (5.2.2) lib/active_support/dependencies.rb:511:in `load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:57:in `load_missing_constant'
+activesupport (5.2.2) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.2) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.2) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.2) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+versionist (1.7.0) lib/versionist/middleware.rb:39:in `_call'
+versionist (1.7.0) lib/versionist/middleware.rb:17:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by?a=a" for ::1 at 2019-02-08 21:16:02 +0400
+Processing by V1::ReportsController#generate as HTML
+  Parameters: {"a"=>"a"}
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by.json" for ::1 at 2019-02-08 21:16:08 +0400
+Processing by V1::ReportsController#generate as JSON
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.09ms)
+Completed 200 OK in 13ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by.json" for ::1 at 2019-02-08 21:16:22 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by.json"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by_.json" for ::1 at 2019-02-08 21:16:28 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by_.json"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by_.json" for ::1 at 2019-02-08 21:16:36 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/reports/by_.json"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/reports/by_example.json" for ::1 at 2019-02-08 21:16:40 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"example"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.07ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json" for ::1 at 2019-02-08 21:16:48 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.22ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json" for ::1 at 2019-02-08 21:16:57 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.09ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa" for ::1 at 2019-02-08 21:16:59 +0400
+Processing by V1::ReportsController#generate as HTML
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa" for ::1 at 2019-02-08 21:17:15 +0400
+Processing by V1::ReportsController#generate as HTML
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa" for ::1 at 2019-02-08 21:17:15 +0400
+Processing by V1::ReportsController#generate as HTML
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+Filter chain halted as :json_format rendered or redirected
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json" for ::1 at 2019-02-08 21:17:18 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.13ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json" for ::1 at 2019-02-08 21:17:30 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.12ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json" for ::1 at 2019-02-08 21:34:17 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"param"=>:nickname, "nickname"=>"aaa"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: a):
+  
+app/controllers/v1/reports_controller.rb:13:in `find_user'
+Started GET "/api/v1/reports/by_aaa.json?a=a" for ::1 at 2019-02-08 21:34:23 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"a"=>"a", "param"=>:nickname, "nickname"=>"aaa"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: b):
+  
+app/controllers/v1/reports_controller.rb:14:in `find_user'
+Started GET "/api/v1/reports/by_aaa.json?a=a&b=b" for ::1 at 2019-02-08 21:34:28 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"a"=>"a", "b"=>"b", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:15
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.14ms)
+Completed 200 OK in 27ms (Views: 4.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?a=a&b=b" for ::1 at 2019-02-08 21:35:55 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"a"=>"a", "b"=>"b", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 5ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: start_date):
+  
+app/controllers/v1/reports_controller.rb:22:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date&end_date&email" for ::1 at 2019-02-08 21:36:06 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>nil, "end_date"=>nil, "email"=>nil, "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: start_date):
+  
+app/controllers/v1/reports_controller.rb:22:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=&end_date=&email=" for ::1 at 2019-02-08 21:36:16 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"", "end_date"=>"", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: start_date):
+  
+app/controllers/v1/reports_controller.rb:22:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:36:21 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.17ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:36:44 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:36:47 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: email):
+  
+app/controllers/v1/reports_controller.rb:24:in `needed_params'
+app/controllers/v1/reports_controller.rb:8:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:37:08 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.15ms)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&a=4" for ::1 at 2019-02-08 21:37:14 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "a"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.14ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&a=4" for ::1 at 2019-02-08 21:37:30 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "a"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :end_date, :email, :a, :param, :nickname, :format
+Unpermitted parameters: :start_date, :email, :a, :param, :nickname, :format
+Unpermitted parameters: :start_date, :end_date, :a, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.1ms)
+Completed 200 OK in 13ms (Views: 5.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&a=4" for ::1 at 2019-02-08 21:37:30 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "a"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :end_date, :email, :a, :param, :nickname, :format
+Unpermitted parameters: :start_date, :email, :a, :param, :nickname, :format
+Unpermitted parameters: :start_date, :end_date, :a, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.15ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&a=4" for ::1 at 2019-02-08 21:37:55 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "a"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :a, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.09ms)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&awss=4" for ::1 at 2019-02-08 21:37:58 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "awss"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :awss, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.16ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3&awss=4" for ::1 at 2019-02-08 21:38:00 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "awss"=>"4", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :awss, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.15ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:38:03 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.12ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2" for ::1 at 2019-02-08 21:38:10 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.12ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2" for ::1 at 2019-02-08 21:38:19 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 1)):
+  
+app/controllers/v1/reports_controller.rb:22:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2" for ::1 at 2019-02-08 21:38:30 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :end_date, :param, :nickname, :format
+Unpermitted parameters: :start_date, :param, :nickname, :format
+Unpermitted parameters: :start_date, :end_date, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.08ms)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:38:37 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :end_date, :email, :param, :nickname, :format
+Unpermitted parameters: :start_date, :email, :param, :nickname, :format
+Unpermitted parameters: :start_date, :end_date, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.32ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:38:39 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Unpermitted parameters: :end_date, :email, :param, :nickname, :format
+Unpermitted parameters: :start_date, :email, :param, :nickname, :format
+Unpermitted parameters: :start_date, :end_date, :param, :nickname, :format
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.13ms)
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:38:48 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: email):
+  
+app/controllers/v1/reports_controller.rb:24:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:38:51 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.11ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:39:22 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.14ms)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:39:22 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.1ms)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:39:23 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.21ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:39:28 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: email):
+  
+app/controllers/v1/reports_controller.rb:24:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=" for ::1 at 2019-02-08 21:39:39 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+Completed 400 Bad Request in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: email):
+  
+app/controllers/v1/reports_controller.rb:24:in `needed_params'
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:39:42 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.09ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:42:40 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:15
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 21:42:41 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:15
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2020-01-01 00:00:00"], ["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2020-01-01 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2020-01-01 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2010-01-01 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2010-01-01 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2010-01-01 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2010-01-01 00:00:00"], ["created_at", "2020-01-01 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."published_at" BETWEEN $1 AND $2[0m  [["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = $1 LIMIT $2[0m  [["post_id", 1], ["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."author" = $1 LIMIT $2[0m  [["author", "example"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3 LIMIT $4[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"], ["LIMIT", 11]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = $1 LIMIT $2[0m  [["post_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = $1 LIMIT $2[0m  [["post_id", 91], ["LIMIT", 11]]
+Started GET "/api/v1/reports/by_aaa.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 23:27:10 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"aaa"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `posts' for nil:NilClass):
+  
+app/controllers/v1/reports_controller.rb:9:in `generate'
+Started GET "/api/v1/reports/by_example.json?start_date=1&end_date=2&email=3" for ::1 at 2019-02-08 23:27:28 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"1", "end_date"=>"2", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", nil], ["published_at", nil]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 42ms (Views: 5.0ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010.01.01&end_date=2010.01.01&email=3" for ::1 at 2019-02-08 23:27:51 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010.01.01", "end_date"=>"2010.01.01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010.01.01&end_date=2010.01.01&email=3" for ::1 at 2019-02-08 23:27:56 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010.01.01", "end_date"=>"2010.01.01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010.01-01&end_date=2010-01-01&email=3" for ::1 at 2019-02-08 23:28:05 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010.01-01", "end_date"=>"2010-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", nil], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2010-01-01&email=3" for ::1 at 2019-02-08 23:28:12 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2010-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2000-01-01&end_date=2000-01-01&email=3" for ::1 at 2019-02-08 23:28:21 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2000-01-01", "end_date"=>"2000-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2000-01-01 00:00:00"], ["published_at", "2000-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2000-01-01&end_date=2000-01-01&email=3" for ::1 at 2019-02-08 23:28:42 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2000-01-01", "end_date"=>"2000-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2000-01-01 00:00:00"], ["published_at", "2000-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2000-01-01 00:00:00"], ["published_at", "2000-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 31ms (Views: 5.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2000-01-01&email=3" for ::1 at 2019-02-08 23:29:43 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2000-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2000-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2000-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2010-01-01&email=3" for ::1 at 2019-02-08 23:29:47 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2010-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2010-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2020-01-01&email=3" for ::1 at 2019-02-08 23:29:51 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2020-01-01&email=3" for ::1 at 2019-02-08 23:32:38 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"3", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 26ms (Views: 3.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/v1/reports/by_example.json?start_date=2010-01-01&end_date=2020-01-01&email=example@mail.com" for ::1 at 2019-02-08 23:33:08 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"example@mail.com", "param"=>:nickname, "nickname"=>"example"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."nickname" = $1 LIMIT $2[0m  [["nickname", "example"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/reports_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/controllers/v1/reports_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 23ms (Views: 3.2ms | ActiveRecord: 5.1ms)
+
+
