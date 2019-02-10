@@ -2,15 +2,34 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to VoltRailsApp</h1>
-    <p>
-      It is generated report<br>
-    </p>
-    <p>
-      Here is your report.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <h1>Generated report between dates: (<%= @report[:from] %>)..(<%= @report[:to] %>)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <% @report[:records].each do |record| %>
+      <tr>
+        <td><%= record[:user][:nickname] %></td>
+        <td><%= record[:user][:email] %></td>
+        <td><%= record[:posts_amount] %></td>
+        <td><%= record[:comments_amount] %></td>
+      </tr>
+      <% end %>
+    </table>
   </body>
 </html>

@@ -10,6 +10,7 @@ Endpoints:
 - Create post: POST -> /api/v1/posts.json
 - Show post: GET -> /api/v1/posts/:post_id.json
 - Index posts by pages: GET -> /api/v1/posts.json
+- Report posts and comment via mailer: POST -> /api/v1/reports/by_author.json params: email, start_date, end_date
 
 * Ruby version - ruby 2.6.0p0 (2018-12-25 revision 66547)
 
