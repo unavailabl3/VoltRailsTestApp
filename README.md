@@ -22,6 +22,8 @@ Endpoints:
 
 * Testing - Rspec 3.6
 
+* Sidekiq, Redis, Mailer for User report
+
 * Json — ActiveModelSerializer
 
 * Json Web Token authentication
