@@ -16540,3 +16540,1460 @@ puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
 Started GET "/sidekiq/stats" for ::1 at 2019-02-11 15:09:35 +0400
 Started GET "/sidekiq/stats" for ::1 at 2019-02-11 15:09:39 +0400
+Started GET "/sidekiq/stats" for ::1 at 2019-02-11 15:57:25 +0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  
+redis (4.1.0) lib/redis/client.rb:353:in `rescue in establish_connection'
+redis (4.1.0) lib/redis/client.rb:336:in `establish_connection'
+redis (4.1.0) lib/redis/client.rb:104:in `block in connect'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:103:in `connect'
+redis (4.1.0) lib/redis/client.rb:372:in `ensure_connected'
+redis (4.1.0) lib/redis/client.rb:224:in `block in process'
+redis (4.1.0) lib/redis/client.rb:312:in `logging'
+redis (4.1.0) lib/redis/client.rb:223:in `process'
+redis (4.1.0) lib/redis/client.rb:193:in `call_pipelined'
+redis (4.1.0) lib/redis/client.rb:163:in `block in call_pipeline'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:161:in `call_pipeline'
+redis (4.1.0) lib/redis.rb:2408:in `block in pipelined'
+redis (4.1.0) lib/redis.rb:50:in `block in synchronize'
+/Users/admin/.rbenv/versions/2.6.0/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+redis (4.1.0) lib/redis.rb:50:in `synchronize'
+redis (4.1.0) lib/redis.rb:2404:in `pipelined'
+sidekiq (5.2.5) lib/sidekiq/api.rb:68:in `block in fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq.rb:97:in `block in redis'
+connection_pool (2.2.2) lib/connection_pool.rb:65:in `block (2 levels) in with'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `block in with'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `with'
+sidekiq (5.2.5) lib/sidekiq.rb:94:in `redis'
+sidekiq (5.2.5) lib/sidekiq/api.rb:67:in `fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq/api.rb:23:in `initialize'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `new'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `block in <class:WebApplication>'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `instance_exec'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `block in call'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `catch'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `call'
+rack (2.0.6) lib/rack/auth/basic.rb:25:in `call'
+rack-protection (2.0.5) lib/rack/protection/xss_header.rb:18:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/path_traversal.rb:16:in `call'
+rack-protection (2.0.5) lib/rack/protection/json_csrf.rb:26:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/frame_options.rb:31:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+rack (2.0.6) lib/rack/urlmap.rb:68:in `block in call'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `each'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `call'
+rack (2.0.6) lib/rack/builder.rb:153:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:103:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:108:in `call'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+versionist (1.7.0) lib/versionist/middleware.rb:39:in `_call'
+versionist (1.7.0) lib/versionist/middleware.rb:17:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/sidekiq/stats" for ::1 at 2019-02-11 15:57:30 +0400
+  
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  
+redis (4.1.0) lib/redis/client.rb:353:in `rescue in establish_connection'
+redis (4.1.0) lib/redis/client.rb:336:in `establish_connection'
+redis (4.1.0) lib/redis/client.rb:104:in `block in connect'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:103:in `connect'
+redis (4.1.0) lib/redis/client.rb:372:in `ensure_connected'
+redis (4.1.0) lib/redis/client.rb:224:in `block in process'
+redis (4.1.0) lib/redis/client.rb:312:in `logging'
+redis (4.1.0) lib/redis/client.rb:223:in `process'
+redis (4.1.0) lib/redis/client.rb:193:in `call_pipelined'
+redis (4.1.0) lib/redis/client.rb:163:in `block in call_pipeline'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:161:in `call_pipeline'
+redis (4.1.0) lib/redis.rb:2408:in `block in pipelined'
+redis (4.1.0) lib/redis.rb:50:in `block in synchronize'
+/Users/admin/.rbenv/versions/2.6.0/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+redis (4.1.0) lib/redis.rb:50:in `synchronize'
+redis (4.1.0) lib/redis.rb:2404:in `pipelined'
+sidekiq (5.2.5) lib/sidekiq/api.rb:68:in `block in fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq.rb:97:in `block in redis'
+connection_pool (2.2.2) lib/connection_pool.rb:65:in `block (2 levels) in with'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `block in with'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `with'
+sidekiq (5.2.5) lib/sidekiq.rb:94:in `redis'
+sidekiq (5.2.5) lib/sidekiq/api.rb:67:in `fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq/api.rb:23:in `initialize'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `new'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `block in <class:WebApplication>'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `instance_exec'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `block in call'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `catch'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `call'
+rack (2.0.6) lib/rack/auth/basic.rb:25:in `call'
+rack-protection (2.0.5) lib/rack/protection/xss_header.rb:18:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/path_traversal.rb:16:in `call'
+rack-protection (2.0.5) lib/rack/protection/json_csrf.rb:26:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/frame_options.rb:31:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+rack (2.0.6) lib/rack/urlmap.rb:68:in `block in call'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `each'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `call'
+rack (2.0.6) lib/rack/builder.rb:153:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:103:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:108:in `call'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+versionist (1.7.0) lib/versionist/middleware.rb:39:in `_call'
+versionist (1.7.0) lib/versionist/middleware.rb:17:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/sidekiq/stats" for ::1 at 2019-02-11 15:57:34 +0400
+  
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  
+redis (4.1.0) lib/redis/client.rb:353:in `rescue in establish_connection'
+redis (4.1.0) lib/redis/client.rb:336:in `establish_connection'
+redis (4.1.0) lib/redis/client.rb:104:in `block in connect'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:103:in `connect'
+redis (4.1.0) lib/redis/client.rb:372:in `ensure_connected'
+redis (4.1.0) lib/redis/client.rb:224:in `block in process'
+redis (4.1.0) lib/redis/client.rb:312:in `logging'
+redis (4.1.0) lib/redis/client.rb:223:in `process'
+redis (4.1.0) lib/redis/client.rb:193:in `call_pipelined'
+redis (4.1.0) lib/redis/client.rb:163:in `block in call_pipeline'
+redis (4.1.0) lib/redis/client.rb:299:in `with_reconnect'
+redis (4.1.0) lib/redis/client.rb:161:in `call_pipeline'
+redis (4.1.0) lib/redis.rb:2408:in `block in pipelined'
+redis (4.1.0) lib/redis.rb:50:in `block in synchronize'
+/Users/admin/.rbenv/versions/2.6.0/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+redis (4.1.0) lib/redis.rb:50:in `synchronize'
+redis (4.1.0) lib/redis.rb:2404:in `pipelined'
+sidekiq (5.2.5) lib/sidekiq/api.rb:68:in `block in fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq.rb:97:in `block in redis'
+connection_pool (2.2.2) lib/connection_pool.rb:65:in `block (2 levels) in with'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:64:in `block in with'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `handle_interrupt'
+connection_pool (2.2.2) lib/connection_pool.rb:61:in `with'
+sidekiq (5.2.5) lib/sidekiq.rb:94:in `redis'
+sidekiq (5.2.5) lib/sidekiq/api.rb:67:in `fetch_stats!'
+sidekiq (5.2.5) lib/sidekiq/api.rb:23:in `initialize'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `new'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:256:in `block in <class:WebApplication>'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `instance_exec'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:287:in `block in call'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `catch'
+sidekiq (5.2.5) lib/sidekiq/web/application.rb:283:in `call'
+rack (2.0.6) lib/rack/auth/basic.rb:25:in `call'
+rack-protection (2.0.5) lib/rack/protection/xss_header.rb:18:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/path_traversal.rb:16:in `call'
+rack-protection (2.0.5) lib/rack/protection/json_csrf.rb:26:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack-protection (2.0.5) lib/rack/protection/frame_options.rb:31:in `call'
+rack-protection (2.0.5) lib/rack/protection/base.rb:50:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+rack (2.0.6) lib/rack/urlmap.rb:68:in `block in call'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `each'
+rack (2.0.6) lib/rack/urlmap.rb:53:in `call'
+rack (2.0.6) lib/rack/builder.rb:153:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:103:in `call'
+sidekiq (5.2.5) lib/sidekiq/web.rb:108:in `call'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+actionpack (5.2.2) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+versionist (1.7.0) lib/versionist/middleware.rb:39:in `_call'
+versionist (1.7.0) lib/versionist/middleware.rb:17:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/auth/login" for ::1 at 2019-02-11 15:57:47 +0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"example@mail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"example@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 94ms (Views: 5.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 15:57:47 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (24.32ms)
+Completed 200 OK in 54ms (Views: 34.0ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:00:46 +0400
+Processing by V1::ReportsController#generate as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: start_date):
+  
+app/controllers/v1/reports_controller.rb:18:in `needed_params'
+app/controllers/v1/reports_controller.rb:6:in `generate'
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:04:01 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+
+  
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  
+app/controllers/v1/reports_controller.rb:7:in `generate'
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:04:30 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 15ms (Views: 3.3ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:07:08 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:08:00 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:08:23 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 17ms (Views: 3.4ms | ActiveRecord: 3.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/workers/report_worker.rb:6
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 2], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Keira Metz"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 3], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Caranthir"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 4], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Calanthe"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 5], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Priscilla"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 6], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Dethmold"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 7], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "King Radovid"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 8], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Crach an Craite"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 9], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Francesca Findabair"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 10], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Donar an Hindar"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  Rendering reports_mailer/report_email.html.erb within layouts/mailer
+  Rendered reports_mailer/report_email.html.erb within layouts/mailer (1.4ms)
+ReportsMailer#report_email: processed outbound mail in 38.2ms
+Sent mail to tranebest@mail.ru (2035.1ms)
+Date: Mon, 11 Feb 2019 16:08:23 +0400
+From: reports@voltrailsapp.com
+To: tranebest@mail.ru
+Message-ID: <5c6165b7b879e_fd1a3fd382e8e2e422e@MacBook-Pro-Angelina.local.mail>
+Subject: Generated report
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generated report between dates: (2010-01-01)..(2020-01-01)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <tr>
+        <td>Donar an Hindar</td>
+        <td>rickiehyatt@hansen.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Keira Metz</td>
+        <td>nellahalvorson@torphy.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Caranthir</td>
+        <td>teodorovonrueden@will.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Calanthe</td>
+        <td>garfieldhickle@harvey.co</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Priscilla</td>
+        <td>jimmy@parisian.info</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Dethmold</td>
+        <td>loralee@weinatgleason.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>King Radovid</td>
+        <td>stanton@lehner.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Crach an Craite</td>
+        <td>max@roob.net</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Francesca Findabair</td>
+        <td>raymonfeil@fay.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>example</td>
+        <td>example@mail.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 16:09:56 +0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 25ms (Views: 5.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 16:10:01 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (12.8ms)
+Completed 200 OK in 44ms (Views: 25.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 16:10:04 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 16:10:05 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 16:10:07 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (24.15ms)
+Completed 200 OK in 35ms (Views: 25.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 16:10:38 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (7.97ms)
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 16:13:08 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (9.1ms)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 16:45:41 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2010-01-01", "end_date"=>"2020-01-01", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/workers/report_worker.rb:6
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 2], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Keira Metz"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 3], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Caranthir"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 4], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Calanthe"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 5], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Priscilla"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 6], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Dethmold"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 7], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "King Radovid"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 8], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Crach an Craite"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 9], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Francesca Findabair"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 10], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Donar an Hindar"], ["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  Rendering reports_mailer/report_email.html.erb within layouts/mailer
+  Rendered reports_mailer/report_email.html.erb within layouts/mailer (0.9ms)
+ReportsMailer#report_email: processed outbound mail in 9.2ms
+Sent mail to tranebest@mail.ru (2378.5ms)
+Date: Mon, 11 Feb 2019 16:45:41 +0400
+From: reports@voltrailsapp.com
+To: tranebest@mail.ru
+Message-ID: <5c616e7557f80_fd1a3fd382e8e53c388@MacBook-Pro-Angelina.local.mail>
+Subject: Generated report
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generated report between dates: (2010-01-01)..(2020-01-01)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <tr>
+        <td>Donar an Hindar</td>
+        <td>rickiehyatt@hansen.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Keira Metz</td>
+        <td>nellahalvorson@torphy.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Caranthir</td>
+        <td>teodorovonrueden@will.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Calanthe</td>
+        <td>garfieldhickle@harvey.co</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Priscilla</td>
+        <td>jimmy@parisian.info</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Dethmold</td>
+        <td>loralee@weinatgleason.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>King Radovid</td>
+        <td>stanton@lehner.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Crach an Craite</td>
+        <td>max@roob.net</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Francesca Findabair</td>
+        <td>raymonfeil@fay.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>example</td>
+        <td>example@mail.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."published_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"], ["LIMIT", 11]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."published_at" BETWEEN $1 AND $2[0m  [["published_at", "2010-01-01 00:00:00"], ["published_at", "2020-01-01 00:00:00"]]
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:05:23 +0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 31ms (Views: 6.4ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:06:06 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"tradsn@mas.df"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:06:20 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"tradsn@mas.df"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:06:52 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"ersef@msdf.euu"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:07:17 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 21ms (Views: 4.0ms | ActiveRecord: 3.1ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/workers/report_worker.rb:6
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 2], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Keira Metz"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 3], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Caranthir"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 4], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Calanthe"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 5], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Priscilla"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 6], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Dethmold"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 7], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "King Radovid"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 8], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Crach an Craite"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 9], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Francesca Findabair"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 10], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Donar an Hindar"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  Rendering reports_mailer/report_email.html.erb within layouts/mailer
+  Rendered reports_mailer/report_email.html.erb within layouts/mailer (0.5ms)
+ReportsMailer#report_email: processed outbound mail in 5.0ms
+Sent mail to tranebest@mail.ru (2998.4ms)
+Date: Mon, 11 Feb 2019 17:07:17 +0400
+From: reports@voltrailsapp.com
+To: tranebest@mail.ru
+Message-ID: <5c617385435a9_fd1a3fd382e8e12c455@MacBook-Pro-Angelina.local.mail>
+Subject: Generated report
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generated report between dates: (2019-2-11)..(2019-2-11)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <tr>
+        <td>Donar an Hindar</td>
+        <td>rickiehyatt@hansen.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Keira Metz</td>
+        <td>nellahalvorson@torphy.com</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Caranthir</td>
+        <td>teodorovonrueden@will.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Calanthe</td>
+        <td>garfieldhickle@harvey.co</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Priscilla</td>
+        <td>jimmy@parisian.info</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Dethmold</td>
+        <td>loralee@weinatgleason.org</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>King Radovid</td>
+        <td>stanton@lehner.org</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Crach an Craite</td>
+        <td>max@roob.net</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Francesca Findabair</td>
+        <td>raymonfeil@fay.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>example</td>
+        <td>example@mail.com</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:35:09 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2014-2-11", "end_date"=>"2019-2-11", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 31ms (Views: 5.7ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:35:34 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2014-1-1", "end_date"=>"2024-12-12", "email"=>"tranebest@mail.ru"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 2.6ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/workers/report_worker.rb:6
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 2], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Keira Metz"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 3], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Caranthir"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 4], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Calanthe"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 5], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Priscilla"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 6], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Dethmold"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 7], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "King Radovid"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 8], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Crach an Craite"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 9], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Francesca Findabair"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 10], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Donar an Hindar"], ["published_at", "2014-01-01 00:00:00"], ["published_at", "2024-12-12 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  Rendering reports_mailer/report_email.html.erb within layouts/mailer
+  Rendered reports_mailer/report_email.html.erb within layouts/mailer (0.7ms)
+ReportsMailer#report_email: processed outbound mail in 7.9ms
+Sent mail to tranebest@mail.ru (4086.0ms)
+Date: Mon, 11 Feb 2019 17:35:34 +0400
+From: reports@voltrailsapp.com
+To: tranebest@mail.ru
+Message-ID: <5c617a269b1f6_fd1a3fd382e8f3d8549@MacBook-Pro-Angelina.local.mail>
+Subject: Generated report
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generated report between dates: (2014-1-1)..(2024-12-12)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <tr>
+        <td>Donar an Hindar</td>
+        <td>rickiehyatt@hansen.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Keira Metz</td>
+        <td>nellahalvorson@torphy.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Caranthir</td>
+        <td>teodorovonrueden@will.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Calanthe</td>
+        <td>garfieldhickle@harvey.co</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Priscilla</td>
+        <td>jimmy@parisian.info</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Dethmold</td>
+        <td>loralee@weinatgleason.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>King Radovid</td>
+        <td>stanton@lehner.org</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Crach an Craite</td>
+        <td>max@roob.net</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Francesca Findabair</td>
+        <td>raymonfeil@fay.biz</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>example</td>
+        <td>example@mail.com</td>
+        <td>10</td>
+        <td>50</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:36:24 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:36:29 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 17:36:50 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (12.8ms)
+Completed 200 OK in 44ms (Views: 26.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/v1/posts/22.json" for ::1 at 2019-02-11 17:36:56 +0400
+Processing by V1::PostsController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:32
+[active_model_serializers] Rendered V1::PostSerializer with ActiveModelSerializers::Adapter::JsonApi (1.16ms)
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:37:02 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:37:32 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users/example@mail.com/edit?photo_url=https://unavailabl3.s3.us-east-2.amazonaws.com/RackMultipart20190211-64506-m7awut.png" for ::1 at 2019-02-11 17:37:41 +0400
+Processing by V1::UsersController#edit as */*
+  Parameters: {"photo_url"=>"https://unavailabl3.s3.us-east-2.amazonaws.com/RackMultipart20190211-64506-m7awut.png", "email"=>"example@mail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/v1/users_controller.rb:10
+  [1m[36mUser Update (6.1ms)[0m  [1m[33mUPDATE "users" SET "photo_url" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["photo_url", "https://unavailabl3.s3.us-east-2.amazonaws.com/RackMultipart20190211-64506-m7awut.png"], ["updated_at", "2019-02-11 13:37:41.695690"], ["id", 1]]
+  ↳ app/controllers/v1/users_controller.rb:10
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/v1/users_controller.rb:10
+Completed 204 No Content in 16ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:37:41 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:37:46 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.43ms)
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 17:37:54 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (12.54ms)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/users/example@mail.com" for ::1 at 2019-02-11 17:38:13 +0400
+Processing by V1::UsersController#show as */*
+  Parameters: {"email"=>"example@mail.com"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "example@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/v1/users_controller.rb:16
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/posts.json" for ::1 at 2019-02-11 17:38:30 +0400
+Processing by V1::PostsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/v1/posts_controller.rb:39
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY published_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/controllers/v1/posts_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (16.41ms)
+Completed 200 OK in 26ms (Views: 17.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/reports/by_author.json" for ::1 at 2019-02-11 17:40:05 +0400
+Processing by V1::ReportsController#generate as JSON
+  Parameters: {"start_date"=>"2019-2-11", "end_date"=>"2019-2-11", "email"=>"tranebest97@gmail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/workers/report_worker.rb:6
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 1], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "example"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 2], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Keira Metz"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 3], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Caranthir"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 4], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Calanthe"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 5], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Priscilla"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 6], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Dethmold"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 7], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "King Radovid"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 8], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Crach an Craite"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 9], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Francesca Findabair"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."published_at" BETWEEN $2 AND $3[0m  [["user_id", 10], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:7
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."author" = $1 AND "comments"."published_at" BETWEEN $2 AND $3[0m  [["author", "Donar an Hindar"], ["published_at", "2019-02-11 00:00:00"], ["published_at", "2019-02-11 00:00:00"]]
+  ↳ app/workers/report_worker.rb:8
+  Rendering reports_mailer/report_email.html.erb within layouts/mailer
+  Rendered reports_mailer/report_email.html.erb within layouts/mailer (1.3ms)
+ReportsMailer#report_email: processed outbound mail in 8.3ms
+Sent mail to tranebest97@gmail.com (1605.1ms)
+Date: Mon, 11 Feb 2019 17:40:05 +0400
+From: reports@voltrailsapp.com
+To: tranebest97@gmail.com
+Message-ID: <5c617b359be7f_fd1a3fd382e8e2e46fc@MacBook-Pro-Angelina.local.mail>
+Subject: Generated report
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generated report between dates: (2019-2-11)..(2019-2-11)</h1>
+    <table>
+      <tr>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Posts Amount</th>
+        <th>Comments Amount</th>
+      </tr>
+      <tr>
+        <td>Donar an Hindar</td>
+        <td>rickiehyatt@hansen.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Keira Metz</td>
+        <td>nellahalvorson@torphy.com</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Caranthir</td>
+        <td>teodorovonrueden@will.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Calanthe</td>
+        <td>garfieldhickle@harvey.co</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Priscilla</td>
+        <td>jimmy@parisian.info</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Dethmold</td>
+        <td>loralee@weinatgleason.org</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>King Radovid</td>
+        <td>stanton@lehner.org</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Crach an Craite</td>
+        <td>max@roob.net</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Francesca Findabair</td>
+        <td>raymonfeil@fay.biz</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>example</td>
+        <td>example@mail.com</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  </body>
+</html>
+

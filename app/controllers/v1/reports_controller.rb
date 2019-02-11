@@ -1,6 +1,6 @@
 class V1::ReportsController < ApplicationController
   before_action :json_format
-  #before_action :authorize_request
+  before_action :authorize_request
 
   def generate
     needed_params
